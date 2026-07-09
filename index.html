@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michał Sekuła — Data & AI Engineer</title>
+<meta name="description" content="Data & AI Engineer with 4+ years building production ETL pipelines and LLM-powered applications. Creator of Lifinio — AI finance app.">
+<meta property="og:title" content="Michał Sekuła — Data & AI Engineer">
+<meta property="og:description" content="Data & AI Engineer building LLM-powered apps. Lifinio, AI agents, ETL pipelines.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #13131a;
+    --border: #1e1e2a;
+    --text: #e0e0e0;
+    --dim: #8888a0;
+    --accent: #2563eb;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+    --green: #4ADE80;
+    --purple: #a78bfa;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 0%, #a0a0c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  .hero .bio {
+    color: var(--dim);
+    max-width: 620px;
+    margin: 0 auto 24px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .hero .links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+  }
+  .btn:hover { border-color: var(--accent); background: var(--accent-glow); text-decoration: none; }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #1d4ed8; }
+
+  /* Sections */
+  section { padding: 48px 0; }
+  section + section { border-top: 1px solid var(--border); }
+
+  .section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    margin-bottom: 24px;
+  }
+
+  /* Project cards */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .project-card .icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .project-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .project-card .tech {
+    font-size: 0.78rem;
+    color: var(--green);
+    margin-bottom: 10px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .project-card p {
+    font-size: 0.88rem;
+    color: var(--dim);
+    line-height: 1.5;
+  }
+  .project-card .link {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    display: inline-block;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .skill-group h4 {
+    font-size: 0.85rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .skill-group .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    color: var(--dim);
+  }
+
+  /* Experience */
+  .timeline { display: flex; flex-direction: column; gap: 20px; }
+  .timeline-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .timeline-item .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .timeline-item .role { font-weight: 600; font-size: 1rem; color: #fff; }
+  .timeline-item .dates { font-size: 0.8rem; color: var(--dim); }
+  .timeline-item .company { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; }
+  .timeline-item ul { list-style: none; }
+  .timeline-item li {
+    font-size: 0.85rem;
+    color: var(--dim);
+    margin-bottom: 4px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .timeline-item li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--dim);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Highlight */
+  .highlight { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<header class="hero">
+  <h1>Michał Sekuła</h1>
+  <div class="subtitle">Data &amp; AI Engineer</div>
+  <p class="bio">
+    I build <span class="highlight">AI-powered applications</span> and robust data pipelines.
+    4+ years in data engineering, now specializing in LLM agents, MCP servers, and intelligent automation.
+    Creator of <strong>Lifinio</strong> — an AI finance app with Gemini-powered receipt parsing.
+  </p>
+  <div class="links">
+    <a href="Resume_Michal_Sekula.pdf" class="btn btn-primary">📄 Download CV</a>
+    <a href="https://github.com/sekisekula" class="btn">💻 GitHub</a>
+    <a href="https://linkedin.com/in/michalsekula" class="btn">🔗 LinkedIn</a>
+    <a href="mailto:mmmsekula@gmail.com" class="btn">✉️ Email</a>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="section-title">Experience</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="header">
+        <span class="role">Data Operations Analyst</span>
+        <span class="dates">2022 – Present</span>
+      </div>
+      <div class="company">Audatex (Solera) — Poznań, Poland</div>
+      <ul>
+        <li>Built ETL pipelines processing millions of records/day with Python & PySpark on Cloudera Hadoop</li>
+        <li>Optimized jobs by 50–70% via partitioning, broadcast joins, and shuffle tuning</li>
+        <li>Ensured 99.9% data lake integrity with comprehensive EDA and validation</li>
+        <li>Productionized ML feature pipelines for vehicle valuation models</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="header">
+        <span class="role">Banking Analyst</span>
+        <span class="dates">2021 – 2022</span>
+      </div>
+      <div class="company">DXC Technology (Avaloq) — Poznań, Poland</div>
+      <ul>
+        <li>Developed 200+ SQL/PL-SQL queries in Oracle for critical banking operations</li>
+        <li>Reduced report generation time by 40% through query tuning</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="header">
+        <span class="role">Trade Analyst</span>
+        <span class="dates">2020 – 2021</span>
+      </div>
+      <div class="company">Livingston International — Poznań, Poland</div>
+      <ul>
+        <li>Automated customs data processing with Excel & ERP; mentored 5+ employees</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section>
+  <div class="section-title">Featured Projects</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="icon">🤖</div>
+      <h3>Lifinio — AI Finance App</h3>
+      <div class="tech">Flutter · Supabase · Gemini 2.5 Flash · MCP</div>
+      <p>Full-stack mobile app with AI receipt parsing (Gemini Vision), LLM categorization, group settlement engine, and MCP server architecture.</p>
+      <a href="https://github.com/sekisekula/ogarniamfinanse-landing" class="link">View Project →</a>
+    </div>
+    <div class="project-card">
+      <div class="icon">🧾</div>
+      <h3>Receipt Analyzer</h3>
+      <div class="tech">Python · PostgreSQL · Docker · AWS EC2</div>
+      <p>Intelligent receipt parser optimized for Polish supermarket chains. Containerized with Docker, deployed on AWS EC2 with PostgreSQL backend.</p>
+      <a href="https://github.com/sekisekula/fm" class="link">View Project →</a>
+    </div>
+    <div class="project-card">
+      <div class="icon">💬</div>
+      <h3>RealEstateBot</h3>
+      <div class="tech">Python · WhatsApp API · NLP</div>
+      <p>Smart WhatsApp assistant for real estate professionals — automates client queries, identity verification, and property info delivery.</p>
+      <a href="https://github.com/sekisekula/python-whatsapp-bot" class="link">View Project →</a>
+    </div>
+    <div class="project-card">
+      <div class="icon">🏙️</div>
+      <h3>Rzeszów Urban Explorer</h3>
+      <div class="tech">HTML · Maps · Data Visualization</div>
+      <p>Interactive urban exploration app for Rzeszów city data and points of interest.</p>
+      <a href="https://github.com/sekisekula/rzeszow-urban" class="link">View Project →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="section-title">Skills &amp; Tools</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>🤖 AI & Machine Learning</h4>
+      <div class="tags">
+        <span class="tag">LLM Agents</span>
+        <span class="tag">MCP Servers</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Gemini API</span>
+        <span class="tag">Model Serving</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>⚙️ Data Engineering</h4>
+      <div class="tags">
+        <span class="tag">Python (expert)</span>
+        <span class="tag">PySpark</span>
+        <span class="tag">Hadoop</span>
+        <span class="tag">ETL/ELT</span>
+        <span class="tag">Kafka</span>
+        <span class="tag">Airflow</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>🗄️ Databases</h4>
+      <div class="tags">
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Oracle PL/SQL</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">Supabase</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>☁️ Cloud & DevOps</h4>
+      <div class="tags">
+        <span class="tag">GCP</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Git</span>
+        <span class="tag">CI/CD</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>📱 Full-Stack</h4>
+      <div class="tags">
+        <span class="tag">Flutter/Dart</span>
+        <span class="tag">Supabase</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Edge Functions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <div class="section-title">Education &amp; Languages</div>
+  <div style="display:flex; gap: 40px; flex-wrap: wrap;">
+    <div>
+      <strong style="color:#fff;">BSc Electrical Engineering</strong><br>
+      <span style="color:var(--dim);">Poznań University of Technology</span><br>
+      <span style="font-size:0.82rem; color:var(--dim);">Focus: Data analysis & automation</span>
+    </div>
+    <div>
+      <strong style="color:#fff;">Languages</strong><br>
+      <span style="color:var(--dim);">🇬🇧 English C1</span> &nbsp;
+      <span style="color:var(--dim);">🇩🇪 German A2</span> &nbsp;
+      <span style="color:var(--dim);">🇵🇱 Polish Native</span>
+    </div>
+    <div>
+      <strong style="color:#fff;">Certifications</strong><br>
+      <span style="color:var(--dim);">GCP Professional Data Engineer</span><br>
+      <span style="font-size:0.82rem; color:var(--dim);">In progress — Q3 2026</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  © 2026 Michał Sekuła · <a href="mailto:mmmsekula@gmail.com">mmmsekula@gmail.com</a> · Poznań, Poland
+</footer>
+
+</body>
+</html>
